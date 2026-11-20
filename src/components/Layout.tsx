@@ -12,6 +12,10 @@ export function Wordmark() {
 
 const links = [['inicio', 'Inicio'], ['proyectos', 'Proyectos'], ['especialidades', 'Especialidades'], ['nosotros', 'Nosotros'], ['contacto', 'Contacto']]
 
+const workshopDirections = 'https://maps.app.goo.gl/p4iExGNyhQeSrGzR8'
+// El mapa del sitio oficial y el enlace del cliente identifican la misma ficha de Google Maps.
+const workshopMap = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6541.039907859009!2d-57.91032012056978!3d-34.94357449999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a2e9d9f227b8d7%3A0xdd9eecf981d699eb!2sHerreria%20Bustelo!5e0!3m2!1ses-419!2sar!4v1758899350717!5m2!1ses-419!2sar'
+
 export function Header({ home }: { home: boolean }) {
   const [open, setOpen] = useState(false)
   const [active, setActive] = useState(home ? 'inicio' : 'proyectos')
@@ -59,6 +63,13 @@ export function Contact() {
         <div><dt>Teléfono</dt><dd><a href="tel:+542214636988">+54 221 463 6988</a></dd></div>
         <div><dt>Taller</dt><dd>Calle 91 N.º 532, entre 5 y 6<br />La Plata, Buenos Aires</dd></div>
       </dl>
+      <div className="contact-location">
+        <a className="text-link" href={workshopDirections} target="_blank" rel="noopener noreferrer">
+          Cómo llegar <Arrow direction="up" />
+        </a>
+        <iframe src={workshopMap} title="Google Maps: taller de Herrería Bustelo en La Plata"
+          loading="lazy" referrerPolicy="no-referrer-when-downgrade" allowFullScreen />
+      </div>
     </div>
   </section>
 }
