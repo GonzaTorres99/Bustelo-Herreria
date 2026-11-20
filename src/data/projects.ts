@@ -52,11 +52,12 @@ const stationDraft: Project = {
 
 // Incorporar aquí las fichas listas para comercialización, con sus fotos importadas de src/assets.
 const editorialProjects: Project[] = []
-const projects = import.meta.env.DEV ? [...editorialProjects, stationDraft] : editorialProjects
+const reviewMode = import.meta.env.DEV || import.meta.env.MODE === 'revision'
+const projects = reviewMode ? [...editorialProjects, stationDraft] : editorialProjects
 
 export function readyForPublication(project: Project) {
   return project.published && project.roleVerified && Boolean(project.busteloScope?.trim())
     && project.cover.rightsConfirmed && project.gallery.every(photo => photo.rightsConfirmed)
 }
 
-export const visibleProjects = projects.filter(project => import.meta.env.DEV || readyForPublication(project))
+export const visibleProjects = projects.filter(project => reviewMode || readyForPublication(project))

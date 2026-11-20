@@ -1,0 +1,9 @@
+{
+  "buildCommand": "npm run build:revision",
+  "headers": [
+    { "source": "/(.*)", "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }] }
+  ],
+  "rewrites": [
+    { "source": "/proyectos/:slug", "destination": "/index.html" }
+  ]
+}
