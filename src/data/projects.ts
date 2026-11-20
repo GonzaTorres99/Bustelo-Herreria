@@ -1,7 +1,8 @@
 export interface ProjectPhoto {
   src: string
   alt: string
-  caption: string
+  caption?: string
+  focalPoint?: string
   width: number
   height: number
   rightsConfirmed: boolean
@@ -17,6 +18,11 @@ export interface Project {
   summary: string
   description: string
   busteloScope: string | null
+  busteloDetails?: {
+    solutions?: string
+    materials?: string
+    technicalNotes?: string
+  }
   roleVerified: boolean
   published: boolean
   cover: ProjectPhoto
@@ -28,6 +34,7 @@ const stationPhoto: ProjectPhoto = {
   src: '/images/proyectos/estacion-la-plata/referencia-interior-01.jpg',
   alt: 'Interior de la Estación La Plata con la cubierta metálica sobre los andenes.',
   caption: 'Vista de la nave central. Referencia interna con autoría y permiso de publicación pendientes.',
+  focalPoint: 'center 79%',
   width: 887,
   height: 591,
   rightsConfirmed: false,
